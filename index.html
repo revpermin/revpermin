@@ -82,31 +82,9 @@ object-position:top;
 z-index:0;
 }
 
-.section-video{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:0;
-}
-
 .heading{
 font-family:'Instrument Serif',serif;
 font-style:italic;
-}
-
-.fade-up{
-opacity:0;
-transform:translateY(40px);
-animation:fadeUp 1s forwards;
-}
-
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
 }
 
 </style>
@@ -192,7 +170,7 @@ transition={{duration:1}}
 className="liquid-glass rounded-full px-5 py-2 mb-8"
 >
 
-<p className="text-white text-sm">
+<p className="text-black text-sm font-medium">
 New • Ferrari 2025 Drivers Collection Live Now
 </p>
 
@@ -202,12 +180,12 @@ New • Ferrari 2025 Drivers Collection Live Now
 initial={{opacity:0,y:30,filter:"blur(10px)"}}
 animate={{opacity:1,y:0,filter:"blur(0px)"}}
 transition={{duration:1,delay:0.2}}
-className="heading text-white text-6xl md:text-8xl leading-[0.85] tracking-[-4px] max-w-5xl"
+className="heading text-black text-5xl md:text-8xl leading-[0.85] tracking-[-4px] max-w-5xl"
 >
 
-Built for the Paddock.
+Inspired by Motorsport.
 <br/>
-Worn Beyond the Track.
+Built for Everyday Wear.
 
 </motion.h1>
 
@@ -215,11 +193,12 @@ Worn Beyond the Track.
 initial={{opacity:0,y:30}}
 animate={{opacity:1,y:0}}
 transition={{duration:1,delay:0.4}}
-className="text-white/80 text-sm md:text-base max-w-2xl mt-6 leading-relaxed"
+className="text-black/80 text-sm md:text-base max-w-2xl mt-6 leading-relaxed font-medium"
 >
 
-Premium motorsport-inspired apparel engineered for Formula culture,
-race weekends, and modern streetwear.
+Motorsport-inspired apparel made for Formula fans,
+race weekends, and everyday streetwear —
+stylish, comfortable, and accessible.
 
 </motion.p>
 
@@ -230,11 +209,11 @@ transition={{duration:1,delay:0.6}}
 className="flex items-center gap-4 mt-10 flex-wrap justify-center"
 >
 
-<button className="liquid-glass rounded-full px-7 py-3 text-white text-sm">
-Explore Collection →
+<button className="liquid-glass rounded-full px-7 py-3 text-black text-sm font-medium">
+Shop Drivers Wear →
 </button>
 
-<button className="text-white text-sm">
+<button className="text-black text-sm font-medium">
 Watch Drop
 </button>
 
@@ -244,11 +223,11 @@ Watch Drop
 
 <div className="liquid-glass rounded-3xl p-6 w-[240px]">
 
-<p className="heading text-white text-4xl">
+<p className="heading text-black text-4xl">
 Ferrari 2025
 </p>
 
-<p className="text-white/70 text-sm mt-2">
+<p className="text-black/70 text-sm mt-2">
 Current Featured Drop
 </p>
 
@@ -256,11 +235,11 @@ Current Featured Drop
 
 <div className="liquid-glass rounded-3xl p-6 w-[240px]">
 
-<p className="heading text-white text-4xl">
+<p className="heading text-black text-4xl">
 Limited
 </p>
 
-<p className="text-white/70 text-sm mt-2">
+<p className="text-black/70 text-sm mt-2">
 Available Sizes: L & XL
 </p>
 
@@ -273,7 +252,7 @@ Available Sizes: L & XL
 <div className="pb-8 flex flex-col items-center gap-5">
 
 <div className="liquid-glass rounded-full px-5 py-2">
-<p className="text-white text-xs">
+<p className="text-black text-xs font-medium">
 Inspired by Motorsport Heritage
 </p>
 </div>
@@ -283,7 +262,7 @@ Inspired by Motorsport Heritage
 {["Ferrari","Monza","Suzuka","Silverstone","Monaco"].map((item)=>(
 <p
 key={item}
-className="heading text-white text-3xl"
+className="heading text-black text-3xl"
 >
 {item}
 </p>
@@ -378,7 +357,8 @@ className="liquid-glass rounded-[32px] p-8 min-h-[320px] flex flex-col justify-b
 
 <p className="text-white/70 text-sm mt-4 max-w-sm leading-relaxed">
 
-Premium motorsport-inspired apparel designed for Formula enthusiasts and modern racing culture.
+Comfortable motorsport-inspired wear designed for
+Formula fans and everyday street styling.
 
 </p>
 
