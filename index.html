@@ -80,11 +80,20 @@ height:120%;
 object-fit:cover;
 object-position:top;
 z-index:0;
+filter:brightness(0.82);
 }
 
 .heading{
 font-family:'Instrument Serif',serif;
 font-style:italic;
+}
+
+.product-image{
+transition:all 0.7s ease;
+}
+
+.product-card:hover .product-image{
+transform:scale(1.05);
 }
 
 </style>
@@ -146,7 +155,7 @@ function Hero(){
 
 return(
 
-<section className="relative min-h-screen overflow-hidden bg-black">
+<section className="relative min-h-screen overflow-hidden bg-black bg-fixed">
 
 <video
 className="hero-video"
@@ -161,7 +170,7 @@ src="https://res.cloudinary.com/dgserbbrf/video/upload/1778247727190528_ge8pzb.m
 
 <Navbar />
 
-<div className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-24">
+<div className="flex-1 flex flex-col items-center justify-center text-center px-6 pt-40">
 
 <motion.div
 initial={{opacity:0,y:20,filter:"blur(10px)"}}
@@ -180,7 +189,7 @@ New • Ferrari 2025 Drivers Collection Live Now
 initial={{opacity:0,y:30,filter:"blur(10px)"}}
 animate={{opacity:1,y:0,filter:"blur(0px)"}}
 transition={{duration:1,delay:0.2}}
-className="heading text-black text-5xl md:text-8xl leading-[0.85] tracking-[-4px] max-w-5xl"
+className="heading text-black text-4xl md:text-8xl leading-[0.85] tracking-[-4px] max-w-5xl"
 >
 
 Inspired by Motorsport.
@@ -249,7 +258,7 @@ Available Sizes: L & XL
 
 </div>
 
-<div className="pb-8 flex flex-col items-center gap-5">
+<div className="pb-8 flex flex-col items-center gap-5 z-20">
 
 <div className="liquid-glass rounded-full px-5 py-2">
 <p className="text-black text-xs font-medium">
@@ -274,6 +283,8 @@ className="heading text-black text-3xl"
 
 </div>
 
+<div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-black z-20"></div>
+
 </section>
 
 )
@@ -286,22 +297,26 @@ const products = [
 
 {
 title:"Ferrari 2025 Drivers Polo",
-status:"LIVE NOW"
+status:"LIVE NOW",
+image:"https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=1200&auto=format&fit=crop"
 },
 
 {
 title:"Ferrari Monza Edition",
-status:"COMING SOON"
+status:"COMING SOON",
+image:"https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop"
 },
 
 {
 title:"Ferrari 2026 Drivers Wear",
-status:"COMING SOON"
+status:"COMING SOON",
+image:"https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop"
 },
 
 {
 title:"Mercedes Drivers Polo",
-status:"COMING SOON"
+status:"COMING SOON",
+image:"https://images.unsplash.com/photo-1489824904134-891ab64532f1?q=80&w=1200&auto=format&fit=crop"
 }
 
 ]
@@ -328,14 +343,41 @@ Lineup
 
 <motion.div
 key={index}
-initial={{opacity:0,y:40}}
-whileInView={{opacity:1,y:0}}
-transition={{duration:0.8}}
+initial={{
+opacity:0,
+y:80,
+scale:0.96,
+filter:"blur(10px)"
+}}
+whileInView={{
+opacity:1,
+y:0,
+scale:1,
+filter:"blur(0px)"
+}}
+transition={{duration:0.9}}
 viewport={{once:true}}
-className="liquid-glass rounded-[32px] p-8 min-h-[320px] flex flex-col justify-between"
+className="product-card liquid-glass rounded-[32px] p-6 min-h-[520px] flex flex-col justify-between"
 >
 
-<div className="flex justify-between items-start">
+<div>
+
+<div className="relative w-full h-[260px] rounded-[24px] overflow-hidden mb-6">
+
+<img
+src={product.image}
+className={`product-image w-full h-full object-cover ${
+product.status === "COMING SOON"
+? "blur-[2px] brightness-75"
+: ""
+}`}
+/>
+
+<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+
+</div>
+
+<div className="flex justify-between items-start mb-8">
 
 <div className="liquid-glass w-14 h-14 rounded-2xl flex items-center justify-center">
 🏎️
@@ -348,8 +390,6 @@ className="liquid-glass rounded-[32px] p-8 min-h-[320px] flex flex-col justify-b
 </div>
 
 </div>
-
-<div>
 
 <h3 className="heading text-white text-5xl leading-none">
 {product.title}
